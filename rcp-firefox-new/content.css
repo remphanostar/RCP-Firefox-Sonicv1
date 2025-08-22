@@ -1,0 +1,47 @@
+/* RCP Firefox Extension - Content Script Styles */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.rcp-toast {
+  pointer-events: none;
+  user-select: none;
+}
+
+.rcp-toast.success {
+  background: #10b981 !important;
+}
+
+.rcp-toast.error {
+  background: #ef4444 !important;
+}
+
+.rcp-toast.warning {
+  background: #f59e0b !important;
+}
+
+.rcp-toast.info {
+  background: #3b82f6 !important;
+}
+
+/* Enhanced text field indicators */
+textarea.rcp-enhanced,
+input[type="text"].rcp-enhanced,
+[contenteditable="true"].rcp-enhanced {
+  transition: all 0.3s ease !important;
+}
+
+textarea.rcp-enhanced:focus,
+input[type="text"].rcp-enhanced:focus,
+[contenteditable="true"].rcp-enhanced:focus {
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3) !important;
+  outline: none !important;
+}

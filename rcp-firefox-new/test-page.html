@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCP Extension Test Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f7fafc;
+        }
+        .test-section h2 {
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4A90E2;
+            padding-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            box-sizing: border-box;
+            transition: border-color 0.2s ease;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #4A90E2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .instructions {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            border: 1px solid #81e6d9;
+            color: #234e52;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .instructions strong {
+            color: #2c7a7b;
+        }
+        .success {
+            background: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #9ae6b4;
+        }
+        .info {
+            background: #bee3f8;
+            color: #2a4365;
+            border: 1px solid #90cdf4;
+        }
+        .warning {
+            background: #feebc8;
+            color: #744210;
+            border: 1px solid #fbd38d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 RCP Extension Test Page</h1>
+
+        <div class="instructions">
+            <strong>Instructions:</strong> Use this page to test the RCP Firefox extension.
+            <ol>
+                <li>Make sure the extension is installed and enabled</li>
+                <li>Try right-clicking on text fields below</li>
+                <li>Look for "RCP - Insert Prompt" in the context menu</li>
+                <li>Test the extension popup interface</li>
+                <li>Try the keyboard shortcut Ctrl+Shift+V</li>
+            </ol>
+        </div>
+
+        <!-- Basic Text Fields Test -->
+        <div class="test-section">
+            <h2>📝 Basic Text Fields</h2>
+            <div class="form-group">
+                <label for="basic-input">Simple Text Input:</label>
+                <input type="text" id="basic-input" placeholder="Right-click here to test context menu">
+            </div>
+            <div class="form-group">
+                <label for="basic-textarea">Text Area:</label>
+                <textarea id="basic-textarea" placeholder="Try pasting prompts here using the extension"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="email-input">Email Input:</label>
+                <input type="email" id="email-input" placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+                <label for="search-input">Search Input:</label>
+                <input type="search" id="search-input" placeholder="Search...">
+            </div>
+        </div>
+
+        <!-- Rich Text Editor Test -->
+        <div class="test-section">
+            <h2>📄 Rich Text Editor</h2>
+            <div class="form-group">
+                <label>Content Editable Div:</label>
+                <div contenteditable="true" id="rich-editor"
+                     style="border: 2px solid #e2e8f0; padding: 12px; min-height: 100px; border-radius: 6px;"
+                     placeholder="This is a rich text editor. Try pasting prompts here.">
+                    This is a rich text editor. Try pasting prompts here using the RCP extension.
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Editor Test -->
+        <div class="test-section">
+            <h2>💻 Code Editor Simulation</h2>
+            <div class="form-group">
+                <label for="code-editor">Code Editor:</label>
+                <textarea id="code-editor" placeholder="// Try pasting code-related prompts here
+function testFunction() {
+    console.log('Hello, World!');
+}"></textarea>
+            </div>
+        </div>
+
+        <!-- Form Elements Test -->
+        <div class="test-section">
+            <h2>📋 Form Elements</h2>
+            <div class="form-group">
+                <label for="url-input">URL Input:</label>
+                <input type="url" id="url-input" placeholder="https://example.com">
+            </div>
+            <div class="form-group">
+                <label for="tel-input">Phone Input:</label>
+                <input type="tel" id="tel-input" placeholder="+1 (555) 123-4567">
+            </div>
+            <div class="form-group">
+                <label for="select-input">Select Dropdown:</label>
+                <select id="select-input" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 6px;">
+                    <option value="">Select an option...</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Extension Features Test -->
+        <div class="test-section">
+            <h2>🔧 Extension Features</h2>
+            <div class="instructions info">
+                <strong>Manual Testing Steps:</strong>
+                <ul style="margin: 10px 0;">
+                    <li>Right-click on any text field above</li>
+                    <li>Look for "RCP - Insert Prompt" in the context menu</li>
+                    <li>Click the RCP extension icon to open the popup</li>
+                    <li>Try adding a new prompt</li>
+                    <li>Test the import functionality</li>
+                    <li>Try the keyboard shortcut Ctrl+Shift+V</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Test Results -->
+        <div class="test-section">
+            <h2>📊 Test Results</h2>
+            <div id="test-results">
+                <p>Run the tests above to see results here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test functionality
+        function logTestResult(testName, result, type = 'info') {
+            const resultsDiv = document.getElementById('test-results');
+            const timestamp = new Date().toLocaleTimeString();
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `instructions ${type}`;
+            resultDiv.innerHTML = `
+                <strong>${testName}</strong> - ${timestamp}<br>
+                ${result}
+            `;
+            resultsDiv.appendChild(resultDiv);
+        }
+
+        // Auto-detect extension
+        document.addEventListener('DOMContentLoaded', function() {
+            logTestResult('Page Load', 'Test page loaded successfully', 'success');
+
+            // Add right-click detection
+            document.addEventListener('contextmenu', function(e) {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.contentEditable === 'true') {
+                    logTestResult('Context Menu', `Right-click detected on ${e.target.tagName.toLowerCase()} element`);
+                }
+            });
+
+            // Add focus detection
+            document.addEventListener('focus', function(e) {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.contentEditable === 'true') {
+                    logTestResult('Focus Detection', `${e.target.tagName.toLowerCase()} element focused`);
+                }
+            }, true);
+        });
+
+        // Add some keyboard shortcuts for testing
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        document.getElementById('basic-input').focus();
+                        logTestResult('Keyboard Test', 'Focused basic input field');
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        document.getElementById('basic-textarea').focus();
+                        logTestResult('Keyboard Test', 'Focused textarea field');
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        document.getElementById('rich-editor').focus();
+                        logTestResult('Keyboard Test', 'Focused rich editor');
+                        break;
+                }
+            }
+        });
+
+        console.log('🧪 RCP Test Page Ready');
+        console.log('📋 Right-click on text fields to test the extension');
+        console.log('⌨️ Use Ctrl+1, Ctrl+2, Ctrl+3 to focus different fields');
+    </script>
+</body>
+</html>
