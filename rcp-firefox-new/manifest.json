@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "RCP - Right Click Prompts",
+  "version": "1.0.0",
+  "description": "Right-click menu for inserting saved prompts into text fields",
+  "author": "RCP Team",
+  "homepage_url": "https://github.com/remphanostar/RCP-Firefox",
+
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "scripting"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "RCP - Right Click Prompts",
+    "default_icon": {
+      "16": "icons/icon-16.svg",
+      "48": "icons/icon-48.svg",
+      "128": "icons/icon-128.svg"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "icons": {
+    "16": "icons/icon-16.svg",
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*.svg"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "commands": {
+    "quick-paste": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+V",
+        "mac": "Command+Shift+V"
+      },
+      "description": "Quick paste last used prompt"
+    }
+  }
+}

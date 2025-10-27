@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCP - Right Click Prompts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            width: 350px;
+            min-height: 400px;
+            max-height: 600px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4A90E2 0%, #E91E63 100%);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 15px;
+            max-height: calc(600px - 80px - 60px);
+            overflow-y: auto;
+        }
+
+        .prompt-list {
+            margin-bottom: 20px;
+        }
+
+        .prompt-item {
+            background: #2d2d2d;
+            border: 1px solid #404040;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .prompt-item:hover {
+            background: #3d3d3d;
+            border-color: #4A90E2;
+            transform: translateY(-1px);
+        }
+
+        .prompt-item .title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .prompt-item .category {
+            font-size: 11px;
+            color: #4A90E2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .prompt-item .preview {
+            font-size: 12px;
+            color: #b3b3b3;
+            margin-top: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #4A90E2;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #357abd;
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+
+        .empty-state .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 10px;
+            color: #999;
+        }
+
+        .empty-state p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            padding: 10px 15px;
+            background: #2d2d2d;
+            border-top: 1px solid #404040;
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #4A90E2;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Scrollbar styling */
+        .main-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .main-content::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .main-content::-webkit-scrollbar-thumb {
+            background: #404040;
+            border-radius: 3px;
+        }
+
+        .main-content::-webkit-scrollbar-thumb:hover {
+            background: #4A90E2;
+        }
+
+        /* Loading state */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            color: #666;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #404040;
+            border-top: 2px solid #4A90E2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤖 RCP</h1>
+        <p>Right Click Prompts</p>
+    </div>
+
+    <div class="main-content">
+        <div class="actions">
+            <button class="btn btn-primary" id="add-prompt">+ Add Prompt</button>
+            <button class="btn btn-secondary" id="import-prompts">📥 Import</button>
+        </div>
+
+        <div id="prompt-list" class="prompt-list">
+            <div class="loading">
+                <div class="spinner"></div>
+                Loading prompts...
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Right-click on text fields to use prompts<br>
+        <a href="#" id="help-link">Help & Shortcuts</a>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
